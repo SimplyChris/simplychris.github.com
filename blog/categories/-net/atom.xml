@@ -4,7 +4,7 @@
   <title><![CDATA[Category: .net | Simply Chris]]></title>
   <link href="http://SimplyChris.github.com/blog/categories/-net/atom.xml" rel="self"/>
   <link href="http://SimplyChris.github.com/"/>
-  <updated>2013-03-03T12:51:49-06:00</updated>
+  <updated>2013-03-04T14:32:20-06:00</updated>
   <id>http://SimplyChris.github.com/</id>
   <author>
     <name><![CDATA[Christopher Morgan]]></name>
@@ -18,7 +18,22 @@
     <link href="http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects/"/>
     <updated>2013-03-03T12:50:00-06:00</updated>
     <id>http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects</id>
-    <content type="html"><![CDATA[<p>Test Post</p>
+    <content type="html"><![CDATA[<p>The problem: Wanting to deserialize some simple JSON into an object without having to add a new type to your domain model.</p>
+
+<p>Turns out, Json.NET has a method that allows you to do just that.</p>
+
+<p>JsonConvert.DeserializeAnonymousType to the rescue.</p>
+
+<p>At first glance, the IntelliSense can be confusing and in reality is a bit misleading.</p>
+
+<p><img class="left" src="/images/jsonconvert_anonymous_intellisense.png">
+Notice how it looks like the method is expecting a Type for the second parameter but in actuality all you need to do is pass in an instance of the anonymous type you create. Here is an example of usage.</p>
+
+<p><code>
+var jsonString = "{color:\"red\",value:\"#f00\"}";
+var htmlColor = new {color = "", value = ""};            
+htmlColor = JsonConvert.DeserializeAnonymousType(jsonString, htmlColor);
+</code></p>
 ]]></content>
   </entry>
   

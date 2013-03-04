@@ -9,8 +9,7 @@
   <meta name="author" content="Christopher Morgan">
 
   
-  <meta name="description" content="Test Post
-">
+  <meta name="description" content="The problem: Wanting to deserialize some simple JSON into an object without having to add a new type to your domain model. Turns out, Json.NET has a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -91,7 +90,26 @@
   </header>
 
 
-<div class="entry-content"><p>Test Post</p>
+<div class="entry-content"><p>The problem: Wanting to deserialize some simple JSON into an object without having to add a new type to your domain model.</p>
+
+<p>Turns out, Json.NET has a method that allows you to do just that.</p>
+
+<p>JsonConvert.DeserializeAnonymousType to the rescue.</p>
+
+<p>At first glance, the IntelliSense can be confusing and in reality is a bit misleading.</p>
+
+<p><img class="left" src="/images/jsonconvert_anonymous_intellisense.png">
+Notice how it looks like the method is expecting a Type for the second parameter but in actuality all you need to do is pass in an instance of the anonymous type you create. Here is an example of usage.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var jsonString = "{color:\"red\",value:\"#f00\"}";
+</span><span class='line'>var htmlColor = new {color = "", value = ""};            
+</span><span class='line'>htmlColor = JsonConvert.DeserializeAnonymousType(jsonString, htmlColor);</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 

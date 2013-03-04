@@ -4,7 +4,7 @@
   <title><![CDATA[Simply Chris]]></title>
   <link href="http://SimplyChris.github.com/atom.xml" rel="self"/>
   <link href="http://SimplyChris.github.com/"/>
-  <updated>2013-03-03T12:51:49-06:00</updated>
+  <updated>2013-03-04T14:32:20-06:00</updated>
   <id>http://SimplyChris.github.com/</id>
   <author>
     <name><![CDATA[Christopher Morgan]]></name>
@@ -18,7 +18,26 @@
     <link href="http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects/"/>
     <updated>2013-03-03T12:50:00-06:00</updated>
     <id>http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects</id>
-    <content type="html"><![CDATA[<p>Test Post</p>
+    <content type="html"><![CDATA[<p>The problem: Wanting to deserialize some simple JSON into an object without having to add a new type to your domain model.</p>
+
+<p>Turns out, Json.NET has a method that allows you to do just that.</p>
+
+<p>JsonConvert.DeserializeAnonymousType to the rescue.</p>
+
+<p>At first glance, the IntelliSense can be confusing and in reality is a bit misleading.</p>
+
+<p><img class="left" src="http://SimplyChris.github.com/images/jsonconvert_anonymous_intellisense.png">
+Notice how it looks like the method is expecting a Type for the second parameter but in actuality all you need to do is pass in an instance of the anonymous type you create. Here is an example of usage.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var jsonString = "{color:\"red\",value:\"#f00\"}";
+</span><span class='line'>var htmlColor = new {color = "", value = ""};            
+</span><span class='line'>htmlColor = JsonConvert.DeserializeAnonymousType(jsonString, htmlColor);</span></code></pre></td></tr></table></div></figure>
+
+
+
 ]]></content>
   </entry>
   
