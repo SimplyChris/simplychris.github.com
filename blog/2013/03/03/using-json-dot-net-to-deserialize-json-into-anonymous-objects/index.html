@@ -160,7 +160,7 @@ Notice how it looks like the method is expecting a Type for the second parameter
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects/" data-via="" data-counturl="http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects/" data-via="SimplyChrisM" data-counturl="http://SimplyChris.github.com/blog/2013/03/03/using-json-dot-net-to-deserialize-json-into-anonymous-objects/" >Tweet</a>
   
   
   
@@ -195,6 +195,22 @@ Notice how it looks like the method is expecting a Type for the second parameter
   </ul>
 </section>
 
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("SimplyChrisM", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/SimplyChrisM" class="twitter-follow-button" data-show-count="false">Follow @SimplyChrisM</a>
+  
+</section>
 
 
 
